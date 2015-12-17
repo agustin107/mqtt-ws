@@ -1,22 +1,27 @@
 {
-    "mqtt": {
-        "host": "mqttHost",
-        "port": 1883
-    },
-    "websocket": {
-        "port": 8080
-    },
-    "log4js": {
-  		"appenders": [
-		      {
-		          "type": "console"
-		      },
-		      {
-		          "type": "file",
-		          "filename": "mqttwsBridge.log",
-		          "maxLogSize": 1024,
-		          "backups": 3
-		      }
-		 ]
-    }
+  "mqtt": {
+    "host": "mqtt.airbits.com.ar",
+    "port": 1883
+  },
+  "websocket": {
+    "port": 8080,
+    "ssl_key": "privatekey.pem",
+    "ssl_cert": "certificate.pem"
+  },
+  "protocolId": "MQIsdp",
+  "protocolVersion": 3,
+  "log4js": {
+    "appenders": [
+    	{
+        "type": "console"
+      },
+      {
+        "type": "file",
+        "filename": "mqttwsBridge.log",
+        "maxLogSize": 1024,
+        "backups": 3
+      }
+    ]
+  }
 }
+
