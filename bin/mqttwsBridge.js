@@ -148,10 +148,10 @@ function run(config) {
     });
 
     ws.on('message', function(message) {
-      message = new Buffer(message);
+      /*message = new Buffer(message);
       var char = "";
       var topic = "";
-      var offset = 0;
+      var offset = 0;*/
       /*while (char != "|" && offset < message.length) {
         console.log(offset);
         topic += char;
@@ -159,8 +159,8 @@ function run(config) {
         offset += 2;
       }*/
       topic = String.fromCharCode.apply(String, message);
-      logger.info("WebSocket client %s publishing to %s", ws.connectString, topic);
-      mqtt.publish(topic, message, mqtt.options);
+      logger.info("WebSocket client %s publishing '%s' to %s", ws.connectString, message, mqtt.topic);
+      mqtt.publish(topic, message);
     });
 
     mqtt.on('error', function(err) {

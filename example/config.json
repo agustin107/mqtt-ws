@@ -1,6 +1,6 @@
 {
   "mqtt": {
-    "host": "mqtt.airbits.com.ar",
+    "host": "mqtt://mqtt.airbits.com.ar",
     "port": 1883
   },
   "websocket": {
