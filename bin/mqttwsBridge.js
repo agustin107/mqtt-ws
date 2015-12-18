@@ -105,7 +105,7 @@ function logError(err, message) {
     var description = getErrnoDescription(err) || err.code;
     logger.error("%s on %s: %s", message, err.syscall, description);
   } else {
-    logger.error("%s: %s", message, err);
+    logger.error("%s: %s", message, JSON.stringify(err));
   }
 }
 
@@ -164,7 +164,7 @@ function run(config) {
     });
 
     mqtt.on('error', function(err) {
-      logError(JSON.stringify(err), "MQTT error");
+      logError(err, "MQTT error");
     });
 
     mqtt.on('connect', function() {
