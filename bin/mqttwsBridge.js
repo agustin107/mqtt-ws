@@ -164,7 +164,7 @@ function run(config) {
     });
 
     mqtt.on('error', function(err) {
-      logError(err, "MQTT error");
+      logError(JSON.stringify(err), "MQTT error");
     });
 
     mqtt.on('connect', function() {
