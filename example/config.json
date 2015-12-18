@@ -1,7 +1,9 @@
 {
   "mqtt": {
     "host": "mqtt://mqtt.airbits.com.ar",
-    "port": 1883
+    "port": 1883,
+    "username": "admin",
+    "password": "admin"
   },
   "websocket": {
     "host": "ws://mqtt.airbits.com.ar",

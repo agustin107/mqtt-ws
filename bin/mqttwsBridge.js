@@ -158,9 +158,8 @@ function run(config) {
         char = String.fromCharCode(message.readUInt16LE(offset));
         offset += 2;
       }*/
-      topic = String.fromCharCode.apply(String, message);
       logger.info("WebSocket client %s publishing '%s' to %s", ws.connectString, message, mqtt.topic);
-      mqtt.publish(topic, message);
+      mqtt.publish(mqtt.topic, message);
     });
 
     mqtt.on('error', function(err) {
@@ -180,7 +179,7 @@ function run(config) {
     });
 
     mqtt.on('message', function(topic, message, packet) {
-      ws.send(Buffer.concat([new Buffer(topic + "|", "utf16le"), new Buffer(message)]), {
+      ws.send(Buffer.concat([new Buffer(topic + "|", "utf16le"), message]), {
         binary: true,
         mask: false
       });
